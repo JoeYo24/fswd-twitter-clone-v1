@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
   end
   def tweets
   end
+  def profile 
+    @profile_username = params[:username]
+  end
 end

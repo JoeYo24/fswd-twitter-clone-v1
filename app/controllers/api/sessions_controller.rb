@@ -35,12 +35,16 @@ module Api
     def destroy
       token = cookies.signed[:twitter_session_token]
       session = Session.find_by(token: token)
-
+    
       if session&.destroy
         render json: {
           success: true
         }
+      else
+        render json: {
+          success: false
+        }, status: :unprocessable_entity
       end
-    end
+    end    
   end
 end

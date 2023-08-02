@@ -2,18 +2,16 @@ body {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
-.tweets {
+.profile { 
     display: flex;
     max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
+    margin: 0 auto;
+    padding: 10px;
 }
 .sidebar {
     background-color: rgb(43, 41, 41);
-    flex: .3;
+    flex: .2;
     min-width: 150px;
-    margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     height: fit-content;
@@ -21,6 +19,10 @@ body {
     border-radius: 20px;
     border: 3px solid rgb(0, 0, 0);
     padding-top: 20px;
+    max-width: 400px;
+    margin-top: 20px;
+    position: sticky;
+    top: 20px;
 	@media (max-width: 768px) {
 		min-width: 60px;
 		flex: .1;
@@ -86,96 +88,6 @@ body {
 		margin-left: 13px !important;
 	}
 }
-.feed {
-    flex: .4;
-    border-right: 1px solid rgb(56, 56, 56);
-    border-left: 1px solid rgb(56, 56, 56);
-    padding: 0 20px; 
-    min-width: fit-content;
-    overflow-y: scroll;
-    height: 100vh;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-	@media (max-width: 768px) {
-		border-right: 0px solid rgb(56, 56, 56);
-		flex: .9;
-		max-width: auto;
-		padding: 0 5px;
-	}
-}
-.feed-header-logout {
-	display: flex !important;
-	cursor: pointer;
-	margin-left: auto !important;
-	align-items: center !important;
-	color: rgb(4, 240, 4) !important;
-}
-.feed-header {
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background-color: rgb(0, 0, 0);
-    z-index: 100;
-    padding: 15px 20px;
-}
-.feed-header > h2 {
-    font-size: 20px;
-    font-weight: 800;
-}
-.feed::-webkit-scrollbar {
-    display: none;
-}
-.widgets {
-    flex: .3;
-    min-width: 150px;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: fit-content;
-    padding-bottom: 20px;
-    border-radius: 20px;
-    border: 3px solid rgb(0, 0, 0);
-    padding-top: 20px;
-    background-color: rgb(43, 41, 41);
-}
-.tweetbox {
-    padding-bottom: 10px;
-    border-bottom: 8px solid rgb(56, 56, 56);
-    padding-right: 10px;
-    background-color: rgb(43, 41, 41) !important;
-    border-radius: 20px;
-}
-.tweetbox > form { 
-    display: flex;
-    flex-direction: column;
-}
-.tweetbox-input {
-    padding: 20px;
-    display: flex;
-}
-.tweetbox-input > input {
-    flex: 1;
-    margin-left: 20px;
-    font-size: 20px;
-    border: none;
-	background-color: rgb(43, 41, 41) !important;
-	color: white;
-}
-.tweetbox-button {
-    background-color: rgb(4, 240, 4) !important;
-    color: rgb(255, 255, 255) !important;
-    border-radius: 30px !important;
-    text-align: center;
-    cursor: pointer !important;
-    transition: background-color 0.1s ease-out !important;
-    text-transform: inherit !important;
-    height: 40px !important;
-    width: 80px !important;
-    margin-left: auto !important;
-    margin-right: 20px !important;
-    margin-top: 20px !important;
-}
 .post {
     display: flex;
     align-items: flex-start;
@@ -184,7 +96,7 @@ body {
     padding-bottom: 10px;
     padding-top: 10px;
 	margin-top: 10px;
-    
+    max-width: 500px;   
 }
 .post-body {
 	flex: 1;
@@ -235,28 +147,85 @@ body {
     cursor: pointer;
     color: rgb(255, 0, 0);
 }
-.widgets {
-	flex: .3;
-	@media (max-width: 1000px) {
-		display: none;
-	}
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: .8;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px;
 }
-.widgets-input {
-	display: flex;
-	align-items: center;
-	background-color: rgb(43, 41, 41) !important;
-	border-radius: 20px;
-	padding: 10px;
-	margin-bottom: 20px;
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    flex: .8;   
+    padding: 10px;
+    height: fit-content;
+    max-height: 600px;
 }
-.widgets-input > input {
-	border: none;
-	background-color: rgb(43, 41, 41) !important;
-	color: white;
-	margin-left: 10px;
-	display: flex;
-	max-width: 100%;
-	box-sizing: border-box;
+.userProfile-coverPhoto {
+    height: 200px;
+    width: 100%;
+    background: linear-gradient(to left, #04F004, #000000); 
+    // background-color: rgb(66, 62, 62);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.userProfile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(43, 41, 41);
+    border-radius: 20px;
+    padding: 20px;
+}
+.userProfile-avatar {
+    height: 150px !important;
+    width: 150px !important;
+    margin-bottom: 20px;
+    margin-right: auto;
+}
+.userProfile-name {
+    margin-right: auto;
+    margin-left: 20px;
+}
+.user-name-badge {
+    color: rgb(4, 240, 4) !important;
+    margin-left: 5px;
+    font-size: 20px !important;
+}
+.user-name-text { 
+    font-size: 20px;
+    font-weight: 800;
+    margin-right: 20px;
+    padding-top: 5px;
+}
+.user-name-email {
+    color:rgb(129, 129, 129) !important;
+    font-size: 15px;
+    margin-right: 20px;
+    padding-top: 5px;
+}
+.userFeed {
+    display: flex;
+    flex-direction: column;
+    flex: .8;
+    margin-right: auto;
+    margin-left: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.userFeed-header {
+    font-size: 20px !important;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.userFeed-sort {
+    margin-bottom: 20px;
+    width: 600px;
 }
 .link-without-underline {
     text-decoration: none;

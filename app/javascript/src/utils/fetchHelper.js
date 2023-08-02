@@ -21,11 +21,12 @@ export function jsonHeader(options = {}) {
     return getMetaContent('csrf-token');
   }
   
-  export function authenticityHeader(options = {}) {
-    return Object.assign(options, {
-      'X-CSRF-Token': getAuthenticityToken(),
+  export function authenticityHeader() {
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    return {
+      'X-CSRF-Token': token,
       'X-Requested-With': 'XMLHttpRequest',
-    });
+    };
   }
   
   /**
